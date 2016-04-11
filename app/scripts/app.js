@@ -13,6 +13,10 @@
             templateUrl: 'views/about.html',
             controller: 'AboutCtrl'
           })
+        .when('/actors', {
+            templateUrl: 'views/actor.html',
+            controller: 'ActorsCtrl'
+          })
         .otherwise({
             redirectTo: '/home'
           });
