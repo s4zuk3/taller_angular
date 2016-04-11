@@ -1,25 +1,18 @@
- (function(){
- angular.module('angularSpa')
-    .controller('ActorsCtrl', function($scope, actorsService){
-        $scope.actors =[];
-        function getActors(){
-            actorsService.getActors()
-            .success(function(data){
-                $scope.actors = data;
-            })
-            .error(function(error){
-                $scope.status = 'Error al consultar por actores';
-            });
-        }
-        getActors();
-    });
+angular.module('angularSpa.controllers',[])
 
-    angular.module('angularSpa')
-    .service('actorsService', function($http){
-        var urlBase = 'http://localhost:8080/sakila-backend-master/actors';
-        this.getActors = function(){
-            return $http.get(urlBase);
-        };
-    });
+.controller('ActorListController',function($scope,actorCRUD){
 
-})();
+    $scope.actors=actorCRUD.query();
+
+})
+
+.controller('ActorCreateController',function($scope,actorCRUD){
+
+    $scope.actor=new actorCRUD();
+
+    $scope.addActor=function(){
+        $scope.actor.lastUpdate = new Date();
+        $scope.actor.$save();
+    }
+
+})

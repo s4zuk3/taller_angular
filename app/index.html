@@ -1,8 +1,10 @@
 <!DOCTYPE HTML>
-<html>
+<html ng-app="angularSpa">
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AngularSpa</title>
   <!-- Recursos de bower-->
   <!-- build:css css/vendor.css -->   
   <!-- bower:css -->
@@ -16,18 +18,16 @@
   <link rel="stylesheet" href="styles/main.css">
   <!-- endinject -->
   <!-- endbuild -->
-</head>
-<body ng-app="angularSpa">
+<body>
 <nav class="navbar navbar-default">
   <ul class="nav navbar-nav navbar-right">
-    <li><a href="#/home">Inicio</a></li>
-    <li><a href="#/actors">Actores</a></li>
-    <li><a href="#/about">Acerca de</a></li>
+    <li><a href="#/listar">Listar</a></li>
+    <li><a href="#/newActor">Agregar</a></li>
   </ul>
 </nav>
 <div class="container">
     <img class="logo" src="images/angular.png" alt="logo">
-    <h1>Angular SPA</h1>    
+    <h1>Actors CRUD</h1>    
     <div ng-view=""></div>
 </div>
   <!-- Recursos de bower-->
@@ -37,6 +37,7 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -44,9 +45,8 @@
   <!-- build:js js/scripts.js -->   
   <!-- inject:js -->
   <script src="scripts/app.js"></script>
-  <script src="scripts/controllers/aboutCtrl.js"></script>
+  <script src="scripts/servicios.js"></script>
   <script src="scripts/controllers/actorsCtrl.js"></script>
-  <script src="scripts/controllers/mainCtrl.js"></script>
   <!-- endinject -->
   <!-- endbuild -->
 </body>

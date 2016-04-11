@@ -1,25 +1,20 @@
-(function(){
+angular.module('angularSpa', ['angularSpa.services','angularSpa.controllers','ngRoute','ngResource',])
+    .config(angularSpaRouter);
 
-    angular.module('angularSpa', [
-    'ngRoute'
-    ])
-    .config(function($routeProvider){
+
+function angularSpaRouter($routeProvider){
         $routeProvider
-        .when('/home', {
-            templateUrl: 'views/main.html',
-            controller: 'MainCtrl'
+        .when('/listar', {
+            templateUrl: 'views/listar.html',
+            controller: 'ActorListController'
           })
-        .when('/about', {
-            templateUrl: 'views/about.html',
-            controller: 'AboutCtrl'
-          })
-        .when('/actors', {
-            templateUrl: 'views/actor.html',
-            controller: 'ActorsCtrl'
+
+        .when('/newActor', {
+            templateUrl: 'views/newActor.html',
+            controller: 'ActorCreateController'
           })
         .otherwise({
             redirectTo: '/home'
           });
-    });
+}
 
-})();
